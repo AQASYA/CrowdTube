@@ -1,0 +1,8 @@
+<div class="jumbotron">
+	<h1>Decide what<br />we watch.</h1>
+	<p class="lead">Upload anonymously. Delete other people's submissions. Only the most well-received content will survive.</p>
+	<p><%= link_to 'Upload now', new_video_path, class: "btn btn-lg btn-success", role: "button" %>
+</div>
+<h4 class="border-bottom">Latest videos</h4>
+<%= render 'list' %>
+<%= link_to 'Find more videos', videos_path, class: "button" %>

@@ -1,0 +1,17 @@
+<div class="jumbotron align-left">
+	<h4><%= @video.title %></h4>
+
+	<iframe id="video" class="video_show" src="https://www.youtube.com/embed/<%= @video.youtubeId %>?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+	
+	<script>
+	$("#video").height($("#video").width() / 1.777778);
+	</script>
+	
+	<%= pluralize(@video.views, "view") %> |
+	<%= link_to 'Edit', edit_video_path(@video) %> |
+	<%= link_to 'Delete', video_path(@video),
+				  method: :delete,
+				  data: { confirm: 'Really delete this video?' } %>
+</div>
+<h4 class="border-bottom">More videos</h4>
+<%= render 'list' %>

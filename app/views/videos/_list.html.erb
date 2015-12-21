@@ -1,0 +1,23 @@
+<!-- expects @videos, @numToList -->
+
+<div class="marketing">
+	<div class="row">
+	<% 
+	@videos.each_with_index do |video, index|
+		if(index < @numToList || @numToList == -1)
+			if(index % 4 == 0 && index != 0)
+				%></div><div class="row"><%
+			end
+			%>
+			<div class="col-md-3">
+				<a href="<%= '/videos/'+video.id.to_s %>">
+				<img src="http://img.youtube.com/vi/<%= video.youtubeId %>/0.jpg">
+				<%= video.title %>
+				</a>
+			</div>
+			<%
+		end
+	end
+	%>
+	</div>
+</div>
