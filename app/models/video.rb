@@ -6,16 +6,16 @@ class Video < ActiveRecord::Base
   
 	def self.getYoutubeId(url)
 		@beginning = url.index('watch?v=')
-		$videoID = ''
+		@videoID = ''
 		if @beginning != nil
 			@end = url.index('&')
 			if @end == nil
 				@end = url.index('#')
 			end
 			if @end == nil
-				@end = url.size - 1
+				@end = url.size
 			end
-			@videoID = url[@beginning + 8, @end - (@beginning + 8) + 1]
+			@videoID = url[@beginning + 8, @end - (@beginning + 8)]
 		else
 			@videoID = nil
 		end
